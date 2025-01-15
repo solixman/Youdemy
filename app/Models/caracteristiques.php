@@ -29,4 +29,10 @@ class Infos
     {
         $this -> description =$desc;
     }
+
+    public function __toString(): string
+    {
+        return "id: " .$this->id. " , name: " .$this->name. " , description: " .$this->description. " .";
+    }
+
 }

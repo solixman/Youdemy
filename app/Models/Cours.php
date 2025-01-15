@@ -1,6 +1,6 @@
 <?php
 
-class Cours {
+class Cour {
     private int $id;
     private string $titre;
     private string $description;
@@ -42,6 +42,13 @@ public function getCategorie(){
 public function getEtudiantsIds(){
 return $this -> etudiantsIds;
 }
+}
+{
+    return "(cours) => id : " . $this->id . " , titre : "
+        . $this->titre . " , description: "
+        . $this->description . " , enseignant: " . $this->enseignant .
+        " , contenu: " . $this->contenu . " , categorie: " . $this->categorie . " , tags: " . implode(" , ", $this->tags) 
+        . " , utilisateurs: " . implode(" , ", $this->utilisateurs). ".";
 }
 
 

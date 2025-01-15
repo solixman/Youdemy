@@ -6,7 +6,7 @@ class Role{
     private int $id;
     private string $roleName;
     private string $roleDescription;
-    private string $logo;
+    private string $logo = '';
 
     public function __construct(){}
         
@@ -43,14 +43,19 @@ class Role{
         return $this->logo;
     }
 
-    public function __call($name,$arguments){
+    // public function __call($name,$arguments){
         
-        if($name='instanceWithoutId'){
-            $this -> roleName=$arguments[0];
-            $this -> roleDescription=$arguments[1];
-            $this -> logo = $arguments[2];
-        }
-    }
+    //     if($name='instanceWithoutId'){
+    //         $this -> roleName=$arguments[0];
+    //         $this -> roleDescription=$arguments[1];
+    //         $this -> logo = $arguments[2];
+    //     }
+    // }
 
+
+    public function __toString()
+    {
+        return "(Role) => id : " . $this->id . " , name : " . $this->roleName . " , description : " . $this ->roleDescription . " , logo : " . $this ->logo ."";
+    }
 
     }

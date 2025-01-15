@@ -1,18 +1,21 @@
+-- Active: 1734440686530@@127.0.0.1@3306@youdemydb
 CREATE DATABASE YoudemyDB
 
 use YoudemyDB
 
+drop database Youdemydb
+
 CREATE Table Roles(
     id int AUTO_INCREMENT PRIMARY key,
-    roleName VARCHAR(50),
-    roleDescription VARCHAR(50),
-    roleLogo VARCHAR(225)
+    name VARCHAR(50),
+    Description VARCHAR(50),
+    Logo VARCHAR(225)
 )
 
 CREATE table Utilisateurs (
     id int primary key  AUTO_INCREMENT NOT null,
-    firstName varchar(50),
-    lastName varchar(50),
+    name varchar(50),
+    lName varchar(50),
     email varchar(100),
     password varchar(50),
     phone VARCHAR(50),
@@ -20,21 +23,23 @@ CREATE table Utilisateurs (
     Foreign Key (roleId) REFERENCES Roles(id)
 )
 
+
 CREATE TABLE Categories(
 id int AUTO_INCREMENT PRIMARY key,
-CategorieName varchar (50),
-CategorieDescription TEXT
+name varchar (50),
+Description TEXT
 )
 
 create table Tags(
     id int AUTO_INCREMENT PRIMARY key,
-    TagName VARCHAR (50),
-    TagDescription text
-)
+    name VARCHAR (50),
+    Description text
+);
+
 
 Create Table Cours(
     id int AUTO_INCREMENT PRIMARY KEY,
-    titre varchar (50),
+    name varchar (50),
     coursDescription text,
     contenu text,
     releaseDateAndTime DATETIME,
@@ -47,6 +52,7 @@ Create Table Cours(
 
 )
 
+
 create table utilisateurs_cours(
     userId int,
     coursId int,
@@ -55,12 +61,23 @@ create table utilisateurs_cours(
 )
 
 
-create Table categories_cours(
+create Table coursMaking( -- name changed to courseMaking
     categorieId int,
     coursId int,
     Foreign Key (categorieId) REFERENCES Categories(id),
     Foreign Key (coursId) REFERENCES Cours(id)
 )
+
+create table registeration(
+ studentId int ,
+ Foreign Key (studentId) REFERENCES Utilisateurs(id),
+ coursId int ,
+ Foreign Key (coursId) REFERENCES Cours(id)
+)
+
+
+-- des Test 
+
 
 select * from Roles
 
@@ -68,3 +85,10 @@ SELECT id, roleName , roleDescription, roleLogo FROM Roles;
 
 
 SELECT id, roleName , roleDescription, roleLogo FROM Roles WHERE id = 6 ;
+
+
+
+rename table categories_cours to courseMaking
+
+
+UPDATE Roles SET name=>'administratuer',Description=>'another description',Logo=>'logohhh.com' WHERE id = 2

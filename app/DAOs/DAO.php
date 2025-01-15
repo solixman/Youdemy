@@ -1,7 +1,7 @@
 <?php
 include './../app/Core/Database.php';
 require_once './../app/Models/roles.php';
-class DAO
+class GDAO
 {
 
     public function create(string $tablename, $params)
@@ -34,6 +34,10 @@ class DAO
         }
     }
 
+
+
+
+
     public function delete($tablename, $id)
     {
 
@@ -43,7 +47,7 @@ class DAO
 
             $stmt = Database::getInstance()->getConnection()->prepare($query);
             $stmt->execute();
-            // echo "Data deleted successfully!";
+            echo "Data deleted successfully!";
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
@@ -78,10 +82,10 @@ class DAO
         // var_dump($SET);
         try {
             $query = "UPDATE " . $tablename . " SET  " . implode(",", $SET) . " WHERE id = " . $id . ";";
-            // var_dump($query);
+            var_dump($query);
             $stmt = Database::getInstance()->getConnection()->prepare($query);
             $stmt->execute();
-            // echo ("data updated succefully");
+             echo ("data updated succefully");
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
@@ -92,25 +96,25 @@ class DAO
      public function getAll($tablename){
       
         try{
-            $query="SELECT id, roleName , roleDescription, roleLogo FROM " . $tablename . ";";
+            $query="SELECT * FROM " . $tablename . ";";
             $stmt = Database::getInstance()->getConnection()->prepare($query);
             $stmt -> execute();
             // var_dump($query); 
-            $result = $stmt->fetchall();
+            $result = $stmt->fetchall(PDO::FETCH_CLASS,substr($tablename,0,-1));
             return $result ;
         }catch(PDOException $e){
             echo("Error:" . $e);
         }
      } 
 
-     public function getOneById($tablename,$id){
+     public function getById($tablename,$id){
       
         try{
-            $query="SELECT id, roleName , roleDescription, roleLogo FROM " . $tablename . " WHERE id = " . $id . " ;";
+            $query="SELECT * FROM " . $tablename . " WHERE id = " . $id . " ;";
             $stmt = Database::getInstance()->getConnection()->prepare($query);
             $stmt -> execute();
             //  var_dump($query); 
-            $result = $stmt->fetchObject();
+            $result = $stmt->fetchall(PDO::FETCH_CLASS,substr($tablename,0,-1));
             return $result ;
         }catch(PDOException $e){
             echo("Error:" . $e);
