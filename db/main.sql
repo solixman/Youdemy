@@ -24,6 +24,7 @@ CREATE table Utilisateurs (
 )
 
 
+
 CREATE TABLE Categories(
 id int AUTO_INCREMENT PRIMARY key,
 name varchar (50),
@@ -53,6 +54,7 @@ Create Table Cours(
 )
 
 
+
 create table utilisateurs_cours(
     userId int,
     coursId int,
@@ -61,7 +63,7 @@ create table utilisateurs_cours(
 )
 
 
-create Table coursMaking( -- name changed to courseMaking
+create Table coursMaking( 
     categorieId int,
     coursId int,
     Foreign Key (categorieId) REFERENCES Categories(id),
@@ -69,9 +71,9 @@ create Table coursMaking( -- name changed to courseMaking
 )
 
 create table registeration(
- studentId int ,
+ studentId int,
  Foreign Key (studentId) REFERENCES Utilisateurs(id),
- coursId int ,
+ coursId int,
  Foreign Key (coursId) REFERENCES Cours(id)
 )
 
@@ -85,6 +87,8 @@ SELECT id, roleName , roleDescription, roleLogo FROM Roles;
 
 
 SELECT id, roleName , roleDescription, roleLogo FROM Roles WHERE id = 6 ;
+
+insert into Roles VALUES(null,'administrateur','adm Description','adm.com'),(null,'etudiant','etud Description','etud.com'),(null,'enseigneur','ense Description','ense.com')
 
 
 

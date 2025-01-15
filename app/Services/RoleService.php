@@ -40,7 +40,7 @@ class RoleService
     $this->GRepository->delete($tablename, $id);
   }
 
-  
+
 public function updateRole(Role $role){
   $tablename ='Roles';
   $params = [
@@ -53,7 +53,12 @@ public function updateRole(Role $role){
 
 }
 
-public function 
+public function getAllRoles(){
+$tablename ='Roles';
+$Result = $this->GRepository->getAll($tablename);
+// var_dump($Result);
+return $Result;
+}
 
 }
 

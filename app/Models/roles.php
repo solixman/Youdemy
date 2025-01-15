@@ -4,9 +4,9 @@
 class Role{
 
     private int $id;
-    private string $roleName;
-    private string $roleDescription;
-    private string $logo = '';
+    private string $name;
+    private string $Description;
+    private string $Logo ;
 
     public function __construct(){}
         
@@ -16,15 +16,15 @@ class Role{
     }
 
     public function setRoleName(string $roleName) : void {
-        $this->roleName = $roleName;
+        $this->name = $roleName;
     }
 
     public function setDescription(string $description) : void {
-        $this->roleDescription = $description;
+        $this->Description = $description;
     }
 
     public function setLogo(string $logo): void {
-        $this->logo = $logo;
+        $this->Logo = $logo;
     }
 
     public function getId(): int {
@@ -32,15 +32,15 @@ class Role{
     }
 
     public function getRoleName() : string {
-        return $this->roleName;
+        return $this->name;
     }
 
     public function getDescription(): string {
-        return $this->roleDescription;
+        return $this->Description;
     }
 
     public function getLogo(): string {
-        return $this->logo;
+        return $this->Logo;
     }
 
     // public function __call($name,$arguments){
@@ -55,7 +55,7 @@ class Role{
 
     public function __toString()
     {
-        return "(Role) => id : " . $this->id . " , name : " . $this->roleName . " , description : " . $this ->roleDescription . " , logo : " . $this ->logo ."";
+        return "(Role) => id : " . $this->id . " , name : " . $this->name . " , description : " . $this ->Description . " , logo : " . $this ->Logo ."";
     }
 
     }

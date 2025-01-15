@@ -18,8 +18,8 @@ class test {
     public function TestDAOcreate(){
       $tablename='Utilisateurs';
       $params=[
-        'firstName'=>'administrateur',
-        'lastName'=>'a description dont worry about it malak dakhl',
+        'name'=>'administrateur',
+        'lName'=>'a description dont worry about it malak dakhl',
         'email'=>'logo.com',
         'password'=>'a password',
         'phone' => '069558746',
@@ -76,8 +76,8 @@ class test {
        $role -> setDescription("another description");
        $role -> setLogo('logohhh.com');
        $roleServise= new RoleService();
-       $roleServise -> updateRole($role);
-
+       $result= $roleServise -> getAllRoles();
+        return $result;
        //    $role = $DAO ->getById($tablename,$role->getId());  just a test 
        // return $role;
        
@@ -101,6 +101,7 @@ $test = new Test();
 // }
 
 $result =$test->TestRoleService();
+// var_dump($result);
 
 
 

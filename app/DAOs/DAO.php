@@ -74,7 +74,7 @@ class GDAO
 
         $combined = array_combine($columns, $values);
         foreach ($combined as $key => $value) {
-            array_push($SET, "" . $key . "=" . $value . "");
+            array_push($SET, "" . $key . "=" . $value . ""); 
         }
 
 
@@ -82,7 +82,7 @@ class GDAO
         // var_dump($SET);
         try {
             $query = "UPDATE " . $tablename . " SET  " . implode(",", $SET) . " WHERE id = " . $id . ";";
-            var_dump($query);
+            // var_dump($query);
             $stmt = Database::getInstance()->getConnection()->prepare($query);
             $stmt->execute();
              echo ("data updated succefully");
@@ -101,6 +101,9 @@ class GDAO
             $stmt -> execute();
             // var_dump($query); 
             $result = $stmt->fetchall(PDO::FETCH_CLASS,substr($tablename,0,-1));
+            var_dump($result);
+            die();
+            
             return $result ;
         }catch(PDOException $e){
             echo("Error:" . $e);
@@ -121,3 +124,6 @@ class GDAO
         }
      } 
 }
+
+
+?>

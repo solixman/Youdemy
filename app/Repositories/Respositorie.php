@@ -22,11 +22,12 @@ class GRepository{
   }
 
   public function getAll($tablename){
-    $this -> DAO->getALL($tablename);
+    return $this -> DAO->getALL($tablename);
+
   }
 
   public function getById($tablename,$id){
-    $this -> DAO->getById($tablename,$id);
+    return $this -> DAO->getById($tablename,$id);
   }
 
 
