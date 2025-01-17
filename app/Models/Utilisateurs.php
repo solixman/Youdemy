@@ -4,13 +4,13 @@
 // include './Reservation.php';
 
 class Utilisateur {
-    private int $id = 1;
-    private string $name ;
+    private int $id = 0;
+    private string $name;
     private string $lName;
     private string $email;
-    private string $password ;
-    private string $phone ;
-    private string $photo ;
+    private string $password;
+    private string $phone;
+    private string $photo;
     private  Role $role;
     private $cours = [];
     private int $roleId=1;
@@ -21,7 +21,7 @@ class Utilisateur {
 
     public  function __call($name, $arguments)
     {
-        if ($name="instance" ){
+        if ($name="instance"){
             if(count($arguments)==8){
             $this -> name = $arguments[0];
             $this -> lName = $arguments[1];
@@ -33,12 +33,13 @@ class Utilisateur {
             $this -> cours = $arguments[7];
             }
             if(count($arguments)==2){
-                $this -> name = $arguments[0];
-                $this -> lName = $arguments[1];
-                
-                }
+                $this -> email = $arguments[0];
+                $this -> password = $arguments[1];
+            }
+        }
+    }
 
-        }}
+
    public function setRole(Role $role){
     $this -> role = $role;
    }

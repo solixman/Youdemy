@@ -13,7 +13,7 @@ class UserService{
         $this-> userRepository = new userRepository();
     }
 
-public function create($user){
+public function create(Utilisateur $user){
      $tablename='Utilisateurs';
      $params=[
         'name'=>$user->getFirstname(),
@@ -33,12 +33,21 @@ public function create($user){
 
     public function findByEmailAndPassword(Utilisateur $user)   
     {
-       $user = $this->userRepository->findByEmailAndPassword($user);
-       $user->setRole(
-           $this->roleService->getRoleById($user->getRoleId())
+    //     var_dump($user);
+    //    die();
+       $email = $user->getEmail();
+       $password=$user->getPassword();
+
+       $this->user= $this->userRepository->findByEmailAndPassword($email,$password);
+
+    //    var_dump($this->user);
+    //    die();
+       $this->user->setRole(
+           $this->roleService->getRoleById($this->user->getRoleId())
        );
-       var_dump($user);
-       return $user;
+    // var_dump($this->user);
+    // die();
+       return $this->user;
    }
 }
 

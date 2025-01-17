@@ -8,7 +8,7 @@
  include('../app/Services/Userservice.php');
 include('../app/Services/authService.php');
 include('../app/http/registerform.php');
-include('../app/http/LogInForm');
+include('../app/http/LogInForm.php');
 include('../app/DAOs/DAO.php');
 
 class test {
@@ -91,7 +91,7 @@ class test {
         $user ->setEmail('email.com');
         $user ->setPassword('a password');
         $userRepo= new UserRepository();
-        $userRepo ->findByEmailAndPassword($user);
+        // $userRepo ->findByEmailAndPassword($user);
         return $user;
     }
     public function testUserService(){
@@ -108,10 +108,13 @@ class test {
           $authsrvs = new authService();
           $loginForm = new LoginForm();
         //   $registerFrom->instance('abir','meskini','abir.meskini@gmail.com','abir02','abir02','069090808','photo.abir');
-        $loginForm ->instance('tayebss@jaa.com','tayebSS231');
         //  $authsrvs->register($registerFrom);
-        $authsrvs -> login($loginForm);
-         return $authsrvs;
+        // $loginForm ->instance('tayebss@jaa.com','tayebSS231');
+        
+        $loginForm->setEmail('soulaymanjaafar@jaa.com');
+        $loginForm->setPassword('jaafarYodode9');
+        $user =  $authsrvs -> login($loginForm);
+         return $user ;
     }
 
 }
@@ -142,8 +145,8 @@ $test = new Test();
 //  $test = $utiilss->toStringWithFirstnameAndLastname();
 // print($test);
 
-$result = $test->testAuthService();
-print($result);
+// $result = $test->testAuthService();
+// var_dump($result);
 
 
 ?>
