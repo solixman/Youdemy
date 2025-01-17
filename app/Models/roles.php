@@ -3,7 +3,7 @@
 
 class Role{
 
-    private int $id;
+    private int $id=1;
     private string $name;
     private string $Description;
     private string $Logo ;

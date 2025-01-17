@@ -13,8 +13,8 @@ class RoleRepository{
      
     }
 
-    public function findByName($roleName){
-        $query='SELECT id,roleName,roleDescription, roleLogo FROM Roles WHERE roleName = ' . $roleName . ';';
+    public function findByName($name){
+        $query='SELECT * FROM Roles WHERE name ="' . $name . '";';
         $stmt = Database::getInstance()->getConnection()->prepare($query);
         $stmt ->execute();
         return $stmt ->fetchObject(Role::class);        

@@ -60,6 +60,19 @@ $Result = $this->GRepository->getAll($tablename);
 return $Result;
 }
 
+public function getRoleById($id){
+  $tablename ='Roles';
+$Result = $this->GRepository->getById($tablename,$id);
+
+//  var_dump($Result);
+return $Result;
+}
+
+public function getRoleByName($roleName){
+  $result = $this->roleRespository->findByName($roleName);
+  return $result;
+}
+
 }
 
 

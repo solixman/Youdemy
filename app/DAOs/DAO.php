@@ -73,6 +73,7 @@ class GDAO
         }
 
         $combined = array_combine($columns, $values);
+        //
         foreach ($combined as $key => $value) {
             array_push($SET, "" . $key . "=" . $value . ""); 
         }
@@ -101,8 +102,8 @@ class GDAO
             $stmt -> execute();
             // var_dump($query); 
             $result = $stmt->fetchall(PDO::FETCH_CLASS,substr($tablename,0,-1));
-            var_dump($result);
-            die();
+            // var_dump($result);
+            // die();
             
             return $result ;
         }catch(PDOException $e){
@@ -117,11 +118,13 @@ class GDAO
             $stmt = Database::getInstance()->getConnection()->prepare($query);
             $stmt -> execute();
             //  var_dump($query); 
-            $result = $stmt->fetchall(PDO::FETCH_CLASS,substr($tablename,0,-1));
+            $result = $stmt->fetchObject(Role::class);
             return $result ;
         }catch(PDOException $e){
             echo("Error:" . $e);
         }
+
+
      } 
 }
 

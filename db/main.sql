@@ -18,12 +18,13 @@ CREATE table Utilisateurs (
     lName varchar(50),
     email varchar(100),
     password varchar(50),
+    photo varchar(250),
     phone VARCHAR(50),
     roleId int ,
     Foreign Key (roleId) REFERENCES Roles(id)
-)
-
-
+);
+select * from Utilisateurs;
+INSERT INTO utilisateurs (name,lName,email,password,photo,phone,roleId) VALUES ('tayeb','souini','tayebss@jaa.com','tayebSS231','another photo','0696656565',2)
 
 CREATE TABLE Categories(
 id int AUTO_INCREMENT PRIMARY key,
