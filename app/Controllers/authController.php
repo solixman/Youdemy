@@ -1,7 +1,6 @@
 <?php
-include("../http/registerform.php");
-include("../http/signInForm.php");
-
+// include("/../http/registerform.php");
+// include("/../http/signInForm.php");
 class authController{
     private AuthService $authService;
 
@@ -24,6 +23,7 @@ class authController{
         } catch (Exception $e) {
             echo"error!:".$e;
         }
+        header('location: dashboard');
     }
 
 }

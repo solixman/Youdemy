@@ -1,4 +1,5 @@
 <?php
+// include('../../views/index.html');
 class LoginForm{
     public string $Email;
     public string $password;
@@ -13,10 +14,7 @@ class LoginForm{
             if(count($arguments)==7){
             $this -> Email =$arguments[0];
             $this -> password = $arguments[1];
-            } 
-        }else if($name="instanceFUlluser"){
-
-        }
+            } }
     }
 
     public function setEmail($email){
@@ -28,4 +26,7 @@ class LoginForm{
     }
 
 }
+
+
+
 ?>
