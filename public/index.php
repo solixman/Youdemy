@@ -34,7 +34,4 @@ switch ($path) {
         case '/dashboard':
             // include
         break;
-
-
-
     }

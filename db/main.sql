@@ -3,7 +3,6 @@ CREATE DATABASE YoudemyDB
 
 use YoudemyDB
 
-drop database Youdemydb
 
 CREATE Table Roles(
     id int AUTO_INCREMENT PRIMARY key,
@@ -12,10 +11,12 @@ CREATE Table Roles(
     Logo VARCHAR(225)
 )
 
+-- alter table Roles alter column Description varchar(250);
+
 CREATE table Utilisateurs (
     id int primary key  AUTO_INCREMENT NOT null,
     name varchar(50),
-    lName varchar(50),
+    lastName varchar(50),
     email varchar(100),
     password varchar(50),
     photo varchar(250),
@@ -23,14 +24,16 @@ CREATE table Utilisateurs (
     roleId int ,
     Foreign Key (roleId) REFERENCES Roles(id)
 );
-select * from Utilisateurs;
-INSERT INTO utilisateurs (name,lName,email,password,photo,phone,roleId) VALUES ('tayeb','souini','tayebss@jaa.com','tayebSS231','another photo','0696656565',2)
+
+INSERT INTO utilisateurs (name,lastName,email,password,photo,phone,roleId) VALUES ('soulayman','jaafar','soulaymanjff@gmail.com','ssjjffssjjff','soulayman photo','08707406',1
+)
 
 CREATE TABLE Categories(
 id int AUTO_INCREMENT PRIMARY key,
 name varchar (50),
 Description TEXT
 )
+
 
 create table Tags(
     id int AUTO_INCREMENT PRIMARY key,
@@ -42,15 +45,15 @@ create table Tags(
 Create Table Cours(
     id int AUTO_INCREMENT PRIMARY KEY,
     name varchar (50),
-    coursDescription text,
+    Description text,
     contenu text,
-    releaseDateAndTime DATETIME,
+    DateAndTime DATETIME,
     image VARCHAR (250),
     enseigneurId int,
     Foreign Key (enseigneurId) REFERENCES Utilisateurs(id),
     categorieId int,
-    Foreign Key (categorieId) REFERENCES Categories(id),
-     etat VARCHAR(20)
+    Foreign Key (categorieId) REFERENCES Categories(id)
+     
 
 )
 
@@ -64,7 +67,7 @@ create table utilisateurs_cours(
 )
 
 
-create Table coursMaking( 
+create Table cours_categorie( 
     categorieId int,
     coursId int,
     Foreign Key (categorieId) REFERENCES Categories(id),
@@ -82,7 +85,9 @@ create table registeration(
 -- des Test 
 
 
-select * from Roles
+select * from utilisateurs;
+
+INSERT INTO Categories VALUES (null,'a nother name','another long description')
 
 SELECT id, roleName , roleDescription, roleLogo FROM Roles;
 
@@ -91,9 +96,6 @@ SELECT id, roleName , roleDescription, roleLogo FROM Roles WHERE id = 6 ;
 
 insert into Roles VALUES(null,'administrateur','adm Description','adm.com'),(null,'etudiant','etud Description','etud.com'),(null,'enseigneur','ense Description','ense.com')
 
-
-
-rename table categories_cours to courseMaking
-
+insert into cours (name,Description,contenu,DateAndTime,image, enseigneurId,categorieId) Values('another name', 'another short description','another bit of contet','2022-11-30 00:00:00','another.course.img','2','1');
 
 UPDATE Roles SET name=>'administratuer',Description=>'another description',Logo=>'logohhh.com' WHERE id = 2

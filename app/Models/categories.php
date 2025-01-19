@@ -1,5 +1,5 @@
 <?php
-include('./infos.php');
+include('infos.php');
 
 class Categorie extends Info{
 

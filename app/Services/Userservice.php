@@ -42,9 +42,7 @@ public function create(Utilisateur $user){
 
     //    var_dump($this->user);
     //    die();
-       $this->user->setRole(
-           $this->roleService->getRoleById($this->user->getRoleId())
-       );
+       $this->user->setRole($this->roleService->getRoleById($this->user->getRoleId()));
     // var_dump($this->user);
     // die();
        return $this->user;

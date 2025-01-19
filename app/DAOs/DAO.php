@@ -118,7 +118,7 @@ class GDAO
             $stmt = Database::getInstance()->getConnection()->prepare($query);
             $stmt -> execute();
             //  var_dump($query); 
-            $result = $stmt->fetchObject(Role::class);
+            $result = $stmt->fetchObject();
             return $result ;
         }catch(PDOException $e){
             echo("Error:" . $e);

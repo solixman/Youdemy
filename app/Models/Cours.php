@@ -1,17 +1,23 @@
 <?php
+include('categories.php');
 
 class Cour {
+
     private int $id;
-    private string $titre;
-    private string $description;
+    private string $name;
+    private string $Description;
     private string $contenu;
-    private string $dateUploading;
+    private string $DateAndTime;
     private string $image;
     private array $tagsIds;
     private Categorie $categorie;
+    private int $enseigneurId;
     private array $etudiantsIds;
+    private int $categorieId;
     
-     
+    
+
+    
 
     public function __construct(){
      $this -> categorie = new Categorie();
@@ -19,16 +25,16 @@ class Cour {
     }
 
    public function getTitre(){
-        return $this -> titre;
+        return $this -> name;
     }
    public function getDescription(){
-        return $this -> description;
-    }
+        return $this ->Description;
+        }
     public function getContenu(){
         return $this -> contenu;
     }
 public function getDate(){
-    return $this -> dateUploading;
+    return $this -> DateAndTime;
 }
 public function getImage(){
     return $this -> image;
@@ -42,14 +48,16 @@ public function getCategorie(){
 public function getEtudiantsIds(){
 return $this -> etudiantsIds;
 }
-}
+public function __toString()
 {
     return "(cours) => id : " . $this->id . " , titre : "
-        . $this->titre . " , description: "
-        . $this->description . " , enseignant: " . $this->enseignant .
-        " , contenu: " . $this->contenu . " , categorie: " . $this->categorie . " , tags: " . implode(" , ", $this->tags) 
-        . " , utilisateurs: " . implode(" , ", $this->utilisateurs). ".";
+. $this->name . " , description:  , enseignant: " . $this->enseigneurId ."
+       " . $this->Description . " , contenu: " . $this->contenu . " 
+        , categorie: " . $this->categorie . " , tags: " . implode(" , ", $this->tagsIds) 
+        . " , students: " . implode(" , ", $this->etudiantsIds). ".";
 }
 
 
+
+}
 ?>

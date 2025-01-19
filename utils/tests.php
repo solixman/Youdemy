@@ -10,7 +10,7 @@ include('../app/Services/authService.php');
 include('../app/http/registerform.php');
 include('../app/http/LogInForm.php');
 include('../app/DAOs/DAO.php');
-
+include('../app/Services/CoursServices.php');
 class test {
 
     public function __construct()
@@ -116,6 +116,13 @@ class test {
         $user =  $authsrvs -> login($loginForm);
          return $user ;
     }
+    public function testCourService(){
+
+        $courService = new courService;
+       return $courService->getAllCourses();
+
+
+    }
 
 }
 
@@ -145,8 +152,8 @@ $test = new Test();
 //  $test = $utiilss->toStringWithFirstnameAndLastname();
 // print($test);
 
-// $result = $test->testAuthService();
-// var_dump($result);
+$result = $test->testCourService();
+var_dump($result);
 
 
 ?>
