@@ -118,11 +118,14 @@ class GDAO
             $stmt = Database::getInstance()->getConnection()->prepare($query);
             $stmt -> execute();
             //  var_dump($query); 
-            $result = $stmt->fetchObject();
+            $result = $stmt->fetchObject(substr($tablename,0,-1));
+            // var_dump($result);
+            // die();
             return $result ;
         }catch(PDOException $e){
             echo("Error:" . $e);
         }
+        
 
 
      } 

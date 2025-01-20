@@ -24,9 +24,8 @@ public function create(Utilisateur $user){
         'roleId'=>$user->getRoleId(),
         'photo'=>$user->getPhoto(),
      ];
-
-     $this->GRepository->create($tablename, $params);
-                                     
+     
+     $this->GRepository->create($tablename, $params);                                
     $user->setRole($this->roleService ->getRoleByName($user->getRole()->getRoleName()));
 
 }

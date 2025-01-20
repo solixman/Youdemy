@@ -116,12 +116,10 @@ class test {
         $user =  $authsrvs -> login($loginForm);
          return $user ;
     }
-    public function testCourService(){
+    public function testCourService($id){
 
         $courService = new courService;
        return $courService->getAllCourses();
-
-
     }
 
 }
@@ -152,7 +150,7 @@ $test = new Test();
 //  $test = $utiilss->toStringWithFirstnameAndLastname();
 // print($test);
 
-$result = $test->testCourService();
+$result = $test->testCourService(5);
 var_dump($result);
 
 

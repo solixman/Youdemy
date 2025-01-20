@@ -14,6 +14,7 @@ class RoleRepository{
     }
 
     public function findByName($name){
+        
         $query='SELECT * FROM Roles WHERE name ="' . $name . '";';
         $stmt = Database::getInstance()->getConnection()->prepare($query);
         $stmt ->execute();

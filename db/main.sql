@@ -9,9 +9,10 @@ CREATE Table Roles(
     name VARCHAR(50),
     Description VARCHAR(50),
     Logo VARCHAR(225)
-)
+);
 
--- alter table Roles alter column Description varchar(250);
+select * from utilisateurs
+
 
 CREATE table Utilisateurs (
     id int primary key  AUTO_INCREMENT NOT null,
@@ -25,14 +26,16 @@ CREATE table Utilisateurs (
     Foreign Key (roleId) REFERENCES Roles(id)
 );
 
-INSERT INTO utilisateurs (name,lastName,email,password,photo,phone,roleId) VALUES ('soulayman','jaafar','soulaymanjff@gmail.com','ssjjffssjjff','soulayman photo','08707406',1
-)
+INSERT INTO utilisateurs (name,lastName,email,password,photo,phone,roleId) VALUES ('hamid','hamid','hamidX9@gmail.com','hamid123','hamid photo','9999999999',2)
+
 
 CREATE TABLE Categories(
 id int AUTO_INCREMENT PRIMARY key,
 name varchar (50),
 Description TEXT
-)
+);
+insert into categories (name,Description) VALUES ("Categorie2", "second_categorie_Description"), ("Categorie3", "third_categorie_Description"), ("Categorie4", "fourth_categorie_Description");
+select * from Categories;
 
 
 create table Tags(
@@ -40,6 +43,10 @@ create table Tags(
     name VARCHAR (50),
     Description text
 );
+
+select *from Tags;
+
+INSERT into Tags (name,Description) VALUES ('tag1','First Tag Description'),('tag2','second Tag Description'),('tag3',"third Tag Description"),('tag4','fourth Tag Description');
 
 
 Create Table Cours(
@@ -53,26 +60,37 @@ Create Table Cours(
     Foreign Key (enseigneurId) REFERENCES Utilisateurs(id),
     categorieId int,
     Foreign Key (categorieId) REFERENCES Categories(id)
-     
-
 )
 
+select * from cours
 
 
-create table utilisateurs_cours(
-    userId int,
+INSERT into cours  (name,Description,contenu,DateAndTime,image, enseigneurId,categorieId) Values('cours1 name', 'first short description','second.content.linc','2022-11-30 00:00:00','first.course.img','2','1'),('cours2 name', 'second short description','notSecond.content.linc','2022-11-30 00:00:00','second.course.img','2','2'),('cours3 name', 'third short description','third.content.linc','2022-11-30 00:00:00','third.course.img','2','4');
+
+
+-- create table utilisateurs_cours(
+--     userId int,
+--     coursId int,
+--     Foreign Key (userId) REFERENCES Utilisateurs(id),
+--     Foreign Key (coursId) REFERENCES Cours(id)
+-- )
+
+-- drop Table utilisateurs_cours
+
+
+create Table cours_Tag( 
+    TagId int,
     coursId int,
-    Foreign Key (userId) REFERENCES Utilisateurs(id),
+    Foreign Key (TagId) REFERENCES Tags(id),
     Foreign Key (coursId) REFERENCES Cours(id)
 )
 
+insert into cours_Tag values (1,5),(2,5),(3,5),(4,4),(3,4),(1,4),(2,6),(3,6),(4,6),(1,7),(3,7);
 
-create Table cours_categorie( 
-    categorieId int,
-    coursId int,
-    Foreign Key (categorieId) REFERENCES Categories(id),
-    Foreign Key (coursId) REFERENCES Cours(id)
-)
+select * from tags;
+select * from cours;
+
+
 
 create table registeration(
  studentId int,
@@ -81,11 +99,14 @@ create table registeration(
  Foreign Key (coursId) REFERENCES Cours(id)
 )
 
+select * from utilisateurs
+
+INSERT into registeration VALUES (5,5),(2,5),(3,5),(4,4),(3,4),(5,4),(2,6),(3,6),(4,6),(5,7),(3,7)
 
 -- des Test 
 
 
-select * from utilisateurs;
+select * from categories;
 
 INSERT INTO Categories VALUES (null,'a nother name','another long description')
 

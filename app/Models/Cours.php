@@ -24,6 +24,22 @@ class Cour {
      
     }
 
+   public function setTagIds($id){
+          $this->tagsIds=$id;
+    }
+    public function setCategorie(Categorie $categorie){
+         $this-> categorie= $categorie;
+    }
+    
+    public function setEtudiantsIds($etudiantsId){
+    $this -> etudiantsIds=$etudiantsId;
+    }
+
+
+    public function getID(){
+        return $this -> id;
+    }
+
    public function getTitre(){
         return $this -> name;
     }
@@ -48,6 +64,12 @@ public function getCategorie(){
 public function getEtudiantsIds(){
 return $this -> etudiantsIds;
 }
+public function getcategorieId(){
+    return $this->categorieId;
+}
+
+
+
 public function __toString()
 {
     return "(cours) => id : " . $this->id . " , titre : "

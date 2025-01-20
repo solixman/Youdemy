@@ -23,8 +23,8 @@ class authService
             $registerForm->lName,
             $registerForm->Email,
             $registerForm->password,
-            $registerForm->phone,
-            $registerForm->photo,
+            '000000000',
+            'https://imgs.search.brave.com/9whgZy6FvowddR1urcESjJ6K7jaR_ZPpZCXmUT7Tovk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAxLzE5LzMyLzkz/LzM2MF9GXzExOTMy/OTM4N19zVVRiVWRl/eWhrMG51aE53NVdh/RnZPeVFGbXhlcHBq/WC5qcGc',
             new Role(),
             []
         );

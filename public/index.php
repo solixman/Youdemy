@@ -1,6 +1,7 @@
 <?php
 include_once('../app/Repositories/Respositorie.php');
 include_once('./../app/http/LogInForm.php');
+include_once('./../app/http/registerform.php');
 include_once('./../app/Services/authService.php');
 include_once('../app/Controllers/authController.php');
 include_once('../app/Services/Userservice.php');
@@ -20,7 +21,7 @@ switch ($path) {
 
         if ($method == 'get')
         {
-            include('../views/index.html');
+            include('../utils/login-form-v16/Login_v16/login.html');
         }
         if($method =='post'){
             $loginform= new LoginForm();
@@ -32,6 +33,21 @@ switch ($path) {
         }
         break;
         case '/dashboard':
-            // include
+
         break;
+        case'/register':
+            if ($method == 'get')
+            {
+               include('../utils/login-form-v16/Login_v16/register.html');
+            }
+            if($method =='post'){
+                $registerform= new RegisterForm();
+                $registerform->instance($_REQUEST['name'],$_REQUEST['lName'],$_REQUEST['Email'],$_REQUEST['password'],$_REQUEST['passwordConfirmation']);
+                // var_dump($registerform);
+                // die();
+            (new authController)->register($registerform);
+            }
+            
+        break;
+
     }

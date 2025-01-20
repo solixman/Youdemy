@@ -5,7 +5,7 @@ class Info{
 
     protected int $id = 0;
     protected string $name;
-    protected string $description;
+    protected string $Description;
 
     public function __construct(){}
 
@@ -22,7 +22,7 @@ class Info{
     }
     public function setDescription(string $description): void 
     {
-        $this->description = $description;
+        $this->Description = $description;
     }
 
 
@@ -36,13 +36,13 @@ class Info{
     }
     public function getDescription(): string 
     {
-        return $this->description;
+        return $this->Description;
     }
 
 
     public function __toString(): string
     {
-        return "id: " .$this->id. " , name: " .$this->name. " , description: " .$this->description. " .";
+        return "id: " .$this->id. " , name: " .$this->name. " , description: " .$this->Description. " .";
     }
 
 

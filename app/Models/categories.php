@@ -12,9 +12,8 @@ class Categorie extends Info{
     
     public static function instanceNameDescription(string $name,string $description){
         $instance = new self();
-
         $instance->name = $name;
-        $instance->description = $description;
+        $instance->Description = $description;
 
         return $instance;
     }
