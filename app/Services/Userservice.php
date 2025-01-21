@@ -6,6 +6,7 @@ class UserService{
     private GRepository $GRepository;
     private RoleService $roleService;
     private userRepository $userRepository;
+
     public function __construct() {
         $this->GRepository = new GRepository();
         $this->roleService = new RoleService();
@@ -13,24 +14,23 @@ class UserService{
         $this-> userRepository = new userRepository();
     }
 
-public function create(Utilisateur $user){
+public function create(Utilisateur $utilisateur){
   
      $tablename='Utilisateurs';
      $params=[
-        'name'=>$user->getFirstname(),
-        'lName'=>$user->getLastname(),
-        'email'=>$user->getEmail(),
-        'password'=>$user->getPassword(),
-        'phone'=>$user->getPhone(),
-        'roleId'=>$user->getRoleId(),
-        'photo'=>$user->getPhoto(),
+        'name'=>$utilisateur->getFirstname(),
+        'lastName'=>$utilisateur->getLastname(),
+        'email'=>$utilisateur->getEmail(),
+        'password'=>$utilisateur->getPassword(),
+        'phone'=>$utilisateur->getPhone(),
+        'roleId'=>$utilisateur->getRoleId(),
+        'photo'=>$utilisateur->getPhoto(),
      ];
        
-  $this -> user = $this->GRepository->create($tablename, $params);  
-
-    $this ->user->setRole($this->roleService ->getRoleByName($user->getRole()->getRoleName()));
-   
-return $this ->user;
+// $this -> user= new Utilisateur();
+    $this->GRepository->create($tablename, $params);  
+    $utilisateur->setRole($this->roleService->getRoleByName($utilisateur->getRole()->getRoleName()));
+    return $utilisateur;
 }
 
     public function findByEmailAndPassword(Utilisateur $user)   

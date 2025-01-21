@@ -22,7 +22,7 @@ class test {
       $tablename='Utilisateurs';
       $params=[
         'name'=>'administrateur',
-        'lName'=>'a description dont worry about it malak dakhl',
+        'lastName'=>'a description dont worry about it malak dakhl',
         'email'=>'logo.com',
         'password'=>'a password',
         'phone' => '069558746',
@@ -150,8 +150,8 @@ $test = new Test();
 //  $test = $utiilss->toStringWithFirstnameAndLastname();
 // print($test);
 
-$result = $test->testCourService(5);
-var_dump($result);
+// $result = $test->testCourService(5);
+// var_dump($result);
 
 
 ?>

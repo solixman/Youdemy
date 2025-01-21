@@ -18,8 +18,8 @@ class GDAO
             }
         }
 
-        var_dump($columns);
-        var_dump($values);
+        // var_dump($columns);
+        // var_dump($values);
 
         try {
 

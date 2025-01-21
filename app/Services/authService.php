@@ -28,7 +28,7 @@ class authService
             new Role(),
             []
         );
-        $this->user->getRole()->setRoleName("Utilisateur");
+        $this->user->getRole()->setRoleName($registerForm->rolename);
         $this->userService -> create($this->user);
         return $this ->user;
     }  

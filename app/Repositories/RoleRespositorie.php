@@ -16,9 +16,14 @@ class RoleRepository{
     public function findByName($name){
         
         $query='SELECT * FROM Roles WHERE name ="' . $name . '";';
+        var_dump($query);
         $stmt = Database::getInstance()->getConnection()->prepare($query);
         $stmt ->execute();
-        return $stmt ->fetchObject(Role::class);        
+          
+         $result = $stmt ->fetchall(pdo::FETCH_CLASS,'Role'); 
+          var_dump($result);
+          die;    
+return $result;
     }
 
  }

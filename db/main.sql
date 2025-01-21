@@ -1,4 +1,4 @@
--- Active: 1734440686530@@127.0.0.1@3306@youdemydb
+-- Active: 1733846332193@@127.0.0.1@3306
 CREATE DATABASE YoudemyDB
 
 use YoudemyDB
@@ -60,7 +60,7 @@ Create Table Cours(
     Foreign Key (enseigneurId) REFERENCES Utilisateurs(id),
     categorieId int,
     Foreign Key (categorieId) REFERENCES Categories(id)
-)
+);
 
 select * from cours
 

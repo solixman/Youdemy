@@ -7,6 +7,7 @@ class RegisterForm
     public string $Email;
     public string $password;
     public string $passwordConfirmation;
+    public string $rolename;
 
     public function __call($name, $arguments){
         if ($name = "instance") {
@@ -16,7 +17,7 @@ class RegisterForm
                 $this->Email = $arguments[2];
                 $this->password = $arguments[3];
                 $this->passwordConfirmation = $arguments[4];
-              
+                $this->rolename = $arguments[5];
             }}
 
 

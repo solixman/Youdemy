@@ -39,4 +39,4 @@ class Database {
        
 }
 
-Database::getInstance()->getConnection();
+// Database::getInstance()->getConnection();

@@ -8,17 +8,21 @@ class authController{
         $this->authService = new AuthService();
     }
 
+    //register method
+
     public function register(RegisterForm $registerForm) {
         try {
              $user = $this->authService->register($registerForm);
+             var_dump($user);
              return $user;
         }catch (Exception $e) {
-            //  echo"error:".$e;
+             echo"error:".$e;
         }
+        header('location: dashboard');
      }
 
 
-
+   //login method
 
      public function login(LoginForm $logInForm) {
  
@@ -28,8 +32,8 @@ class authController{
             echo"error!:".$e;
         }
         header('location: dashboard');
-    }
-
+    } 
+   
 }
 
 ?>
