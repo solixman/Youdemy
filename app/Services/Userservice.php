@@ -14,6 +14,7 @@ class UserService{
     }
 
 public function create(Utilisateur $user){
+  
      $tablename='Utilisateurs';
      $params=[
         'name'=>$user->getFirstname(),
@@ -24,10 +25,12 @@ public function create(Utilisateur $user){
         'roleId'=>$user->getRoleId(),
         'photo'=>$user->getPhoto(),
      ];
-     
-     $this->GRepository->create($tablename, $params);                                
-    $user->setRole($this->roleService ->getRoleByName($user->getRole()->getRoleName()));
+       
+  $this -> user = $this->GRepository->create($tablename, $params);  
 
+    $this ->user->setRole($this->roleService ->getRoleByName($user->getRole()->getRoleName()));
+   
+return $this ->user;
 }
 
     public function findByEmailAndPassword(Utilisateur $user)   

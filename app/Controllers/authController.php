@@ -11,14 +11,15 @@ class authController{
     public function register(RegisterForm $registerForm) {
         try {
              $user = $this->authService->register($registerForm);
+             return $user;
         }catch (Exception $e) {
-             echo"error:".$e;
+            //  echo"error:".$e;
         }
      }
 
 
 
-     
+
      public function login(LoginForm $logInForm) {
  
         try {

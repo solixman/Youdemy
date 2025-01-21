@@ -1,6 +1,5 @@
 <?php
-include './../app/Core/Database.php';
-require_once './../app/Models/roles.php';
+
 class GDAO
 {
 
@@ -75,10 +74,8 @@ class GDAO
         $combined = array_combine($columns, $values);
         //
         foreach ($combined as $key => $value) {
-            array_push($SET, "" . $key . "=" . $value . ""); 
+            array_push($SET, $key . "=" . $value); 
         }
-
-
         // var_dump($combined);
         // var_dump($SET);
         try {

@@ -93,7 +93,8 @@ select * from cours;
 
 
 create table registeration(
- studentId int,
+
+ userId int,
  Foreign Key (studentId) REFERENCES Utilisateurs(id),
  coursId int,
  Foreign Key (coursId) REFERENCES Cours(id)

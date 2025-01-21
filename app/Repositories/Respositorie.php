@@ -10,7 +10,8 @@ class GRepository{
   }
 
   public function create($tablename,$params){
-    $this -> DAO->create($tablename,$params);
+    $result= $this -> DAO->create($tablename,$params);
+    return $result; 
   }
 
   public function delete($tablename,$id){
