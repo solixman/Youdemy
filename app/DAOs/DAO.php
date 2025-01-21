@@ -27,7 +27,7 @@ class GDAO
 
             $stmt = Database::getInstance()->getConnection()->prepare($query);
             $stmt->execute();
-            echo "Data created successfully!";
+            // echo "Data created successfully!";
         } catch (PDOException $e) {  
             echo "Error: " . $e->getMessage();
         }
@@ -46,7 +46,7 @@ class GDAO
 
             $stmt = Database::getInstance()->getConnection()->prepare($query);
             $stmt->execute();
-            echo "Data deleted successfully!";
+            // echo "Data deleted successfully!";
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }

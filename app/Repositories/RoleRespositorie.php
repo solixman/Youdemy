@@ -16,14 +16,18 @@ class RoleRepository{
     public function findByName($name){
         
         $query='SELECT * FROM Roles WHERE name ="' . $name . '";';
-        var_dump($query);
+        // var_dump($query);
+        // die;
+        try{
         $stmt = Database::getInstance()->getConnection()->prepare($query);
         $stmt ->execute();
-          
-         $result = $stmt ->fetchall(pdo::FETCH_CLASS,'Role'); 
-          var_dump($result);
-          die;    
-return $result;
+        $result = $stmt ->fetchObject('Role'); 
+        }catch(PDOException $e){
+            echo'error:'.$e;
+        }
+        //   var_dump($result);
+        //   die;    
+          return $result;
     }
 
  }

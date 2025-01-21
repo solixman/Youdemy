@@ -71,6 +71,8 @@ return $Result;
 
 public function getRoleByName($roleName){
   $result = $this->roleRespository->findByName($roleName);
+  // var_dump($result);
+  // die();
   return $result;
 }
 

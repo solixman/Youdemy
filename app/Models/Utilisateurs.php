@@ -6,7 +6,7 @@
 class Utilisateur {
     private int $id = 0;
     private string $name;
-    private string $lName;
+    private string $lastName;
     private string $email;
     private string $password;
     private string $phone;
@@ -24,7 +24,7 @@ class Utilisateur {
         if ($name="instance"){
             if(count($arguments)==8){
             $this -> name = $arguments[0];
-            $this -> lName = $arguments[1];
+            $this -> lastName = $arguments[1];
             $this -> email =$arguments[2];
             $this -> password = $arguments[3];
             $this -> phone =$arguments[4];
@@ -52,7 +52,7 @@ class Utilisateur {
     }
 
     public function setLastname(string $lastname): void {
-        $this->lName = $lastname;
+        $this->lastName = $lastname;
     }
 
     public function setEmail(string $email) :void {
@@ -70,7 +70,7 @@ class Utilisateur {
         $this->photo = $photo;
     }
  
-    public function setRoleId(string $id){
+    public function setRoleId(int $id){
         $this ->roleId=$id;
     }
 
@@ -82,12 +82,12 @@ class Utilisateur {
         return $this->id;
     }
 
-    public function getFirstname(): string {
+    public function getname(): string {
         return $this->name;
     }
 
     public function getLastname(): string {
-        return $this->lName;
+        return $this->lastName;
     }
 
     public function getEmail(): string {
@@ -121,7 +121,7 @@ class Utilisateur {
 
   
     public function toStringWithFirstnameAndLastname() {    
-        return "(Utilisateur) => id : " . $this->id . " , firstname : " . $this->name . " , lastname : " . $this->lName ;
+        return "(Utilisateur) => id : " . $this->id . " , firstname : " . $this->name . " , lastname : " . $this->lastName ;
     }
 
 

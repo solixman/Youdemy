@@ -21,22 +21,23 @@ public function createUtilisateur() {
    $arguments[5]= "998877";
    $arguments[6]= "visiteur";
 
-    // $role = Role::__call(instanceWithoutId,$rolename);
-
-    
     $user = new Utilisateur('instanceWithoutId',$arguments);
-
-
-    try {
         $user = $this->userService->create($user);
         return $user;
-    }catch (Exception $e) {
-        die("Erreur de base de données : " . $e->getMessage());
-    }
-
-    
 }
 
+
+public function getAll(){
+    // var_dump($this->userService->getAll());
+    // 
+    $users=$this->userService->getAll();
+    // var_dump($users);
+    // die;
+    return $users ;
 }
+
+
+}
+
 
 ?>

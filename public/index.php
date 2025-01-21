@@ -42,8 +42,7 @@ switch ($path) {
         break;
         case '/dashboard':
 
-            echo('you are in the dashboard');
-
+            include('../views/dashboard.php');
 
         break;
         case'/register':

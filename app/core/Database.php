@@ -15,7 +15,7 @@ class Database {
             try {
                 self::$connexion = new PDO("mysql:host=".self::$servername.";dbname=".self::$dbname.";charset=UTF8",self::$username,self::$password);
                 self::$connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                echo("connexion done with no issues");
+                // echo("connexion done with no issues");
             } catch (PDOException $e) {
                 echo'Error:'.$e;
             }
