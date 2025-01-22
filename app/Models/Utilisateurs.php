@@ -36,6 +36,15 @@ class Utilisateur {
                 $this -> email = $arguments[0];
                 $this -> password = $arguments[1];
             }
+            if(count($arguments)==60){
+                $this -> name = $arguments[0];
+                $this -> lastName = $arguments[1];
+                $this -> email =$arguments[2];
+                $this -> password = $arguments[3];
+                $this -> phone =$arguments[4];
+                $this -> photo = $arguments[5];
+            }
+            
         }
     }
 

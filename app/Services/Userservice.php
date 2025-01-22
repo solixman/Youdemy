@@ -49,6 +49,11 @@ public function getAll(){
        $this->user->setRole($this->roleService->getRoleById($this->user->getRoleId()));
        return $this->user;
    }
-}
+   public function updateUser(Utilisateur $user){
 
+    $this->user= $this->userRepository->update($user);
+    
+   }
+}
+   
 ?>

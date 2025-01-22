@@ -36,6 +36,17 @@ public function getAll(){
     return $users ;
 }
 
+public function updateUser($name,$lastname,$password,$Email,$phone,$photo){
+
+    $utilisateur= new Utilisateur();
+    $utilisateur ->instance($name,$lastname,$password,$Email,$phone,$photo);
+    var_dump($utilisateur);
+    die();
+
+
+
+}
+
 
 }
 

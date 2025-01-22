@@ -28,7 +28,7 @@ $users = $uesrContoller->getAll();
 @import url(https://unpkg.com/@webpixels/css@1.1.5/dist/index.css);
 
 /* Bootstrap Icons */
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css")
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
 
 
 </style>
@@ -208,6 +208,7 @@ $users = $uesrContoller->getAll();
                                             <td class="text-end">
                                                 <a href="#" class="btn d-inline-flex btn-sm btn-primary mx-1" data-bs-toggle="modal"
                                                 data-bs-target="#editModal">
+                                                <input type="hidden" name="id" onclick="setUserId(<?= $user->getId()?>)">
                                                     <span class=" pe-2">
                                                         <i class="bi bi-pencil"></i>
                                                     </span>
@@ -250,15 +251,15 @@ $users = $uesrContoller->getAll();
 
                         <div class="mb-3">
                             <label class="form-label">First Name</label>
-                            <input type="text" class="form-control" name="first_name" required>
+                            <input type="text" class="form-control" name="name" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Last Name</label>
-                            <input type="text" class="form-control" name="last_name" required>
+                            <input type="text" class="form-control" name="lastName" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Email</label>
-                            <input type="text" class="form-control" name="email" required>
+                            <input type="text" class="form-control" name="Email" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Password</label>
@@ -272,14 +273,6 @@ $users = $uesrContoller->getAll();
                         <div class="mb-3">
                             <label class="form-label">Photo</label>
                             <input type="text" class="form-control" name="photo" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Cour</label>
-                            <input type="text" class="form-control" name="cour" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Role</label>
-                            <input type="text" class="form-control" name="role" required>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -297,17 +290,20 @@ $users = $uesrContoller->getAll();
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Edit Book</h5>
+                    <h5 class="modal-title">Edit User</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form method="POST" action="/updateUser">
+                    <div class="div">
+                    <input type="hidden"  name="id" class="idonedit" required>
+                    </div>
                 <div class="mb-3">
                             <label class="form-label">First Name</label>
-                            <input type="text" class="form-control" name="first_name" required>
+                            <input type="text" class="form-control" name="name" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Last Name</label>
-                            <input type="text" class="form-control" name="last_name" required>
+                            <input type="text" class="form-control" name="lastName" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Email</label>
@@ -326,13 +322,10 @@ $users = $uesrContoller->getAll();
                             <label class="form-label">Photo</label>
                             <input type="text" class="form-control" name="photo" required>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Cour</label>
-                            <input type="text" class="form-control" name="cour" required>
-                        </div>
+        
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
                         <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </form>
@@ -348,6 +341,12 @@ $users = $uesrContoller->getAll();
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="./../assets//script.js"></script>
+    <script>
+        
+    function setUserId(userId) {
+        document.querySelector('idonedit').value = userId;
+    }
+</script>
 </body>
 
 </html>

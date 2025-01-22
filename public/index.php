@@ -59,10 +59,12 @@ switch ($path) {
             }
             
         break;
-        case'/updateuser':
+        case'/updateUser':
             if($method =='post'){
                 $userService = new UserService();
-                $userService->updateUser($_REQUEST['name'],);
-
+                var_dump($_REQUEST['id']);
+                var_dump($_REQUEST['name']);
+                die;
+                $userService->updateUser($_REQUEST['id'],$_REQUEST['name'],$_REQUEST['lastName'],$_REQUEST['Email'],$_REQUEST['password'],$_REQUEST['phone'],$_REQUEST['photo']);
             }
     } 
