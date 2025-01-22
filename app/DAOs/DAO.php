@@ -101,7 +101,6 @@ class GDAO
             $result = $stmt->fetchall(PDO::FETCH_CLASS,substr($tablename,0,-1));
             // var_dump($result);
             // die();
-            
             return $result ;
         }catch(PDOException $e){
             echo("Error:" . $e);
@@ -122,9 +121,6 @@ class GDAO
         }catch(PDOException $e){
             echo("Error:" . $e);
         }
-        
-
-
      } 
 }
 

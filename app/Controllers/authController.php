@@ -12,14 +12,16 @@ class authController{
 
     public function register(RegisterForm $registerForm) {
         try {
-             $user = $this->authService->register($registerForm);
+            $this->authService->register($registerForm);
             //  var_dump($user);
-            
+            header('location: /dashboard');
         }catch (Exception $e) {
+             header('location: /register');
              echo"error:".$e;
+
         } 
         // return $user;
-        header('location: /dashboard');
+        
      }
 
 
@@ -28,11 +30,13 @@ class authController{
      public function login(LoginForm $logInForm) {
  
         try {
-            $user = $this->authService->login($logInForm);
+            $this->authService->login($logInForm);
+            header('location: /dashboard');
         } catch (Exception $e) {
             echo"error!:".$e;
+            header('location: /login');
         }
-        header('location: /dashboard');
+        
     } 
    
 }

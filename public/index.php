@@ -31,12 +31,10 @@ switch ($path) {
         }
         if($method =='post'){
             // echo('in /login (post method)');
-            
             $authcontroller = new authController();
             $loginform= new LoginForm();
             $loginform->setEmail($_REQUEST['Email']);
             $loginform->setPassword($_REQUEST['password']);
-        
             $authcontroller->login($loginform);
         }
         break;
@@ -56,10 +54,15 @@ switch ($path) {
                 $authcontroller = new authController();
                 $registerform = new RegisterForm();
                 $registerform->instance($_REQUEST['name'],$_REQUEST['lName'],$_REQUEST['Email'],$_REQUEST['password'],$_REQUEST['passwordConfirmation'],$_REQUEST['rolename']);
+               $authcontroller ->register($registerform);
                 
-                $authcontroller ->register($registerform);
             }
             
         break;
+        case'/updateuser':
+            if($method =='post'){
+                $userService = new UserService();
+                $userService->updateUser($_REQUEST['name'],);
 
+            }
     } 

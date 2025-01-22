@@ -44,11 +44,13 @@ class authService
 
     public function login(LoginForm $SigninForm) {
         $this->user->instance($SigninForm->Email,$SigninForm->password);
-        $this->user = $this->userService->findByEmailAndPassword($this->user);
-        if ($this ->user->getId() == 0) {
+        $user = $this->userService->findByEmailAndPassword($this->user);
+        // var_dump($user);
+        // die;
+        if ($user->getId() == 0) {
             throw new Exception("Email ou le mot de passe incorrect");
         }
-        return $this ->user;
+        return $user;
     }
 
 

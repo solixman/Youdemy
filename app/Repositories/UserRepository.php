@@ -9,14 +9,20 @@ class UserRepository{
         $query = "SELECT id, name, lastName, email, phone, photo, roleId, password FROM utilisateurs WHERE email = '" . $email . "' AND password = '". $password ."';";
         $stmt = Database::getInstance()->getConnection()->prepare($query);
         $stmt->execute();
+        $result= $stmt->fetchObject(Utilisateur::class); 
+
          }catch(PDOException $e){
             echo'Error:'.$e;
          }
-         $result= $stmt->fetchObject(Utilisateur::class); 
 
+        if(!$result){
+        return new Utilisateur();
+        }else{
+        return $result;
+        }
         //  var_dump($result);
         //  die();
-        return $result;
+       
     }
 
 }

@@ -45,16 +45,9 @@ public function getAll(){
 
     public function findByEmailAndPassword(Utilisateur $user)   
     {
-    //     var_dump($user);
-    //    die();
-       $email = $user->getEmail();
-       $password=$user->getPassword();
-      
-      $this->userRepository->findByEmailAndPassword($email,$password);
+       $this->user= $this->userRepository->findByEmailAndPassword($user->getEmail(),$user->getPassword());
        $this->user->setRole($this->roleService->getRoleById($this->user->getRoleId()));
-    // var_dump($this->user);
-    // die();
-       return $user;
+       return $this->user;
    }
 }
 
